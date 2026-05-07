@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CALC — Scientific Calculator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css">
+ 
+</head>
+<body>
+
+<div class="calc-wrap">
+  <div class="header">
+    <span class="brand">CALC</span>
+    <div class="status-row">
+      <div class="dot on"></div>
+      <span class="status-label">ACTIVE</span>
+      <div class="dot off"></div>
+      <div class="dot off"></div>
+    </div>
+  </div>
+
+  <div class="calculator">
+    <div class="display">
+      <div class="display-expr" id="expr"></div>
+      <div class="display-main" id="display">0</div>
+      <div class="display-mode">
+        <span class="mode-tag active" id="tag-deg">DEG</span>
+        <span class="mode-tag" id="tag-rad">RAD</span>
+        <span class="mode-tag" id="tag-2nd">2ND</span>
+      </div>
+    </div>
+
+    <!-- Button Grid: 5 columns -->
+    <div class="btn-grid">
+      <!-- Row 1: Shift, mode, mem -->
+      <button class="fn shift-btn" onclick="toggleShift()" id="shiftBtn">2ND</button>
+      <button class="fn" onclick="toggleAngle()" id="angleBtn">DEG</button>
+      <button class="fn" onclick="memStore()">M+</button>
+      <button class="fn" onclick="memRecall()">MR</button>
+      <button class="clr fn" onclick="memClear()">MC</button>
+
+      <!-- Row 2: Scientific functions -->
+      <button class="fn" id="sinBtn"    onclick="trig('sin')">sin</button>
+      <button class="fn" id="cosBtn"    onclick="trig('cos')">cos</button>
+      <button class="fn" id="tanBtn"    onclick="trig('tan')">tan</button>
+      <button class="fn" onclick="logFn()">log</button>
+      <button class="fn" onclick="lnFn()">ln</button>
+
+      <!-- Row 3 -->
+      <button class="fn" onclick="sqrtFn()">√x</button>
+      <button class="fn" onclick="squareFn()">x²</button>
+      <button class="fn" onclick="cubeFn()">x³</button>
+      <button class="fn" onclick="powFn()">xʸ</button>
+      <button class="fn" onclick="invFn()">1/x</button>
+
+      <!-- Row 4 -->
+      <button class="fn" onclick="appendDisplay('π')">π</button>
+      <button class="fn" onclick="appendDisplay('e')">e</button>
+      <button class="fn" onclick="absFn()">|x|</button>
+      <button class="fn" onclick="factFn()">n!</button>
+      <button class="fn" onclick="percentFn()">%</button>
+
+      <!-- Row 5: Parens + clear -->
+      <button class="op" onclick="appendDisplay('(')">&#40;</button>
+      <button class="op" onclick="appendDisplay(')')">&#41;</button>
+      <button class="clr" onclick="clearAll()">AC</button>
+      <button class="clr" onclick="deleteLast()">⌫</button>
+      <button class="op" onclick="appendDisplay('/')">÷</button>
+
+      <!-- Row 6: Numbers -->
+      <button class="num" onclick="appendDisplay('7')">7</button>
+      <button class="num" onclick="appendDisplay('8')">8</button>
+      <button class="num" onclick="appendDisplay('9')">9</button>
+      <button class="op" onclick="appendDisplay('*')">×</button>
+      <button class="op" onclick="appendDisplay('-')">−</button>
+
+      <!-- Row 7 -->
+      <button class="num" onclick="appendDisplay('4')">4</button>
+      <button class="num" onclick="appendDisplay('5')">5</button>
+      <button class="num" onclick="appendDisplay('6')">6</button>
+      <button class="op" onclick="appendDisplay('+')">+</button>
+      <button class="op" onclick="negate()">+/−</button>
+
+      <!-- Row 8 -->
+      <button class="num" onclick="appendDisplay('1')">1</button>
+      <button class="num" onclick="appendDisplay('2')">2</button>
+      <button class="num" onclick="appendDisplay('3')">3</button>
+      <button class="num span2 eq" onclick="calculate()" style="grid-row: span 2">=</button>
+
+      <!-- Row 9 -->
+      <button class="num span2" onclick="appendDisplay('0')">0</button>
+      <button class="num" onclick="appendDisplay('.')">.</button>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span class="footer-label">SCIENTIFIC · v9.0</span>
+    <span class="corner-deco">◈ CALC ◈</span>
+  </div>
+</div>
+<script src="./index.js"></script>
+
+</body>
+</html>
